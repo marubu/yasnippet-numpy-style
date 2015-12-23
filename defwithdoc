@@ -12,4 +12,10 @@ def ${1:function}(${2:args}):
     ----------
     ${5:Please press the tab key twice.$(replace-regexp-in-string
                                            ".*" "parameters" yas-text)}
-    }"""
+    }
+
+    Returns
+    -------
+    ${6:returns}
+    """
+    pass
