@@ -5,7 +5,9 @@
 #contributor : MATSUBARA Naoya
 # --
 
-(flet ((parse-args
+(require 'cl)
+
+(cl-flet ((parse-args
         (count tmp-buf)
         (while (and
                 (< count 5)
@@ -21,7 +23,7 @@
                       "^ *def" "def"
                       (buffer-substring-no-properties
                        (line-beginning-position)
-                       (line-end-position (incf count))))
+                       (line-end-position (cl-incf count))))
                      (replace-regexp-in-string
                       "^ *def *\\(.*?\\)(.*$" "\\1"
                       (buffer-substring-no-properties
@@ -38,7 +40,7 @@
                                   (make-string python-indent ? )
                                   "${%d:description}\n}")
                           template
-                          (incf count) narg (incf count) (incf count)))))
+                          (cl-incf count) narg (cl-incf count) (cl-incf count)))))
         (replace-regexp-in-string "}\\n}$" "}}" template))
        (get-word-from-nline
         (n)
